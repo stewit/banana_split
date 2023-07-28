@@ -9,12 +9,24 @@
     </div>
     <qriously class="qr-code print-only" :value="shard" :size="600" />
     <qriously class="screen-only card-qr" :value="shard" :size="200" />
+
+    <div>
+      QR content json for alternative manual input:
+    </div>
+
+    <div class="print-only" id="" style="word-wrap:break-word;text-align:left;width:80vw;font-size:1vw;">
+      {{shardJsonStr}}
+    </div>
+
     <div class="print-only">
       <div class="recovery-field">
         <div class="recovery-title">
-          Recovery&nbsp;passphrase&nbsp;is&nbsp;
+          Recovery&nbsp;passphrase&nbsp;is:&nbsp;
         </div>
-        <div class="recovery-blank" />
+        <div class="print-only" v-if="printPassword" style="text-transform:none">
+          {{recoveryPassphrase}}
+        </div>
+        <div class="recovery-blank" v-if="!printPassword" />
       </div>
       <p class="version">
         Please go to <a href="https://bs.parity.io">bs.parity.io</a> to download
@@ -42,7 +54,15 @@ export default Vue.extend({
     requiredShards: {
       type: Number,
       required: true
-    }
+    },
+    printPassword: {
+      type: Boolean,
+      required: true
+    },
+    recoveryPassphrase: {
+      type: String,
+      required: true
+    }    
   },
   computed: {
     pluralizeCode: function() {
@@ -57,6 +77,10 @@ export default Vue.extend({
     },
     ipfsCid: function(): string {
       return this.cid;
+    },
+    shardJsonStr: function(): string {
+      // return this.shard;
+      return JSON.stringify(JSON.parse(this.shard), null, 2);
     }
   }
 });

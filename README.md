@@ -57,12 +57,12 @@ yarn install
 
 #### Compiles and hot-reloads for development
 ```
-yarn run serve
+NODE_OPTIONS=--openssl-legacy-provider yarn run serve
 ```
 
 #### Compiles and minifies for production
 ```
-yarn run build
+NODE_OPTIONS=--openssl-legacy-provider yarn run build
 ```
 
 #### Run unit tests

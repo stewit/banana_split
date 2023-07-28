@@ -71,6 +71,17 @@
             &#x21ba;
           </button>
         </div>
+        <div>
+        <div>
+        Write it by hand on each printed sheet!
+        </div>
+        <div style="display:inline-block;margin-right:3px;margin-top:8px">
+          <input type="checkbox" id="printPassword" v-model="printPassword" name="print password" style="display:inline"/>
+        </div>
+        <div style="display:inline-block">
+          <label for="printPassword" style="display:inline">Print Password onto sheets (DANGER ZONE! At your own risk...)</label>
+        </div>
+      </div>
       </div>
       <div class="card" transparent="true">
         <button id="printBtn" class="button-card" @click="print">
@@ -82,6 +93,8 @@
           :shard="shard"
           :required-shards="requiredShards"
           :title="title"
+          :printPassword="printPassword"
+          :recoveryPassphrase="recoveryPassphrase"
         />
       </div>
     </div>
@@ -102,6 +115,7 @@ type ShareData = {
   totalShards: number;
   recoveryPassphrase: string;
   encryptionMode: boolean;
+  printPassword: boolean;
 };
 
 export default Vue.extend({
@@ -113,7 +127,8 @@ export default Vue.extend({
       secret: "",
       totalShards: 3, // TODO: 5
       recoveryPassphrase: "",
-      encryptionMode: false
+      encryptionMode: false,
+      printPassword: false
     };
   },
   computed: {
@@ -122,6 +137,10 @@ export default Vue.extend({
     },
     requiredShards(): number {
       return Math.floor(this.totalShards / 2) + 1;
+    },
+    shouldPrintPassword(): boolean {
+      return true;
+      // this.printPassword;
     },
     shards(): string[] {
       this.$eventHub.$emit("clearAlerts");

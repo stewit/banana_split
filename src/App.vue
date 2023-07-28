@@ -15,8 +15,32 @@
       </nav>
 
       <router-view v-if="secure" />
-      <SavePageInfo v-else-if="!localFile" />
-      <GoOfflineInfo v-else-if="isOnline" />
+      <SavePageInfo v-else-if="! (localFile || this.allow_non_local)" />
+      <GoOfflineInfo v-else-if="isOnline && ! this.allow_online" />
+
+      <p style="margin-top:2em;">
+      
+      <b>Security Overrides (DANGER ZONE! At your own risk...):</b>
+      </p>
+
+      <div>
+        <div style="display:inline-block;margin-right:3px">
+          <input type="checkbox" id="allow_online" v-model="allow_online" style="vertical-align:middle" />
+        </div>
+        <div style="display:inline-block">
+          <label for="allow_online" style="word-wrap:break-word">Do not enforce browser offline mode</label> 
+        </div>
+      </div>
+
+      <div>
+        <div style="display:inline-block;margin-right:3px">
+          <input type="checkbox" id="allow_non_local" v-model="allow_non_local" name="allow running from non-local file" style="display:inline"/>
+        </div>
+        <div style="display:inline-block">
+          <label for="allow_non_local" style="display:inline">Do not enforce running from local file</label>
+        </div>
+      </div>
+      
       <div class="version-footer">
         {{ gitRevision }}
       </div>
@@ -36,13 +60,18 @@ import Vue from "vue";
 export default Vue.extend({
   name: "App",
   components: { Alert, GoOfflineInfo, SavePageInfo, ForkMe },
+  data() {
+    return {allow_online: false, allow_non_local: false}
+  },
   computed: {
     localFile(): boolean {
       return window.location.protocol === "file:";
     },
     secure(): boolean {
       if (process.env.NODE_ENV === "production") {
-        return this.localFile && !this.isOnline;
+        return ( 
+               (this.localFile || this.allow_non_local)
+            && ((!this.isOnline) || this.allow_online) );
       } else {
         return true;
       }
@@ -296,4 +325,5 @@ button {
     margin-bottom: 100px;
   }
 }
+
 </style>

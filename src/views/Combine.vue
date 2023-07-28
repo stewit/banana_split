@@ -8,7 +8,19 @@
         </span>
       </h2>
       <div v-if="needMoreShards">
+        Scan QR code... <br>
         <qrcode-stream @decode="onDecode" />
+        <hr style="width:75%;margin-top:10px;margin-bottom:10px">
+        ... or enter shard json from printout below!
+        <textarea
+          id="shard_json_str"
+          v-model="shard_json_str"          
+          placeholder="Enter shard json manually"
+          style="margin-bottom:5px"
+        />
+        <button id="add_shard" class="button-card" @click="addshardjson" style="margin-bottom:10px">
+          Add shard json
+        </button>        
       </div>
       <div v-else>
         <p>
@@ -66,6 +78,7 @@ import Vue from "vue";
 type CombineData = {
   title: string;
   nonce: string;
+  shard_json_str: string;
   shards: Shard[];
   qrCodes: Set<string>;
   requiredShards?: number;
@@ -80,6 +93,7 @@ export default Vue.extend({
     return {
       title: "",
       nonce: "",
+      shard_json_str: "",
       shards: [],
       qrCodes: new Set(),
       requiredShards: undefined,
@@ -160,6 +174,22 @@ export default Vue.extend({
       } catch (error) {
         this.$eventHub.$emit("showError", error);
       }
+    },
+
+    addshardjson: function(): string | void {
+
+      let result;
+      result = this.shard_json_str;
+
+      // remove linebreaks, then decode
+      let decode_result;
+      decode_result = this.onDecode(result.replace(/(\r\n|\n|\r)/gm, ""));
+
+      this.shard_json_str = "";
+
+      return decode_result;
+
+      
     }
   }
 });

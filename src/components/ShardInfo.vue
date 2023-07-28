@@ -17,6 +17,14 @@ export default Vue.extend({
     requiredShards: {
       type: Number,
       required: true
+    },
+    printPassword: {
+      type: Boolean,
+      required: true
+    },
+    recoveryPassphrase: {
+      type: String,
+      required: true
     }
   },
   beforeDestroy: function() {
