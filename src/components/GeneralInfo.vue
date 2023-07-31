@@ -2,7 +2,8 @@
   <div class="general-info">
     <h2>What is this?</h2>
     <p>
-      Banana Split fork is fork of <a href="https://bs.parity.io" target="_blank">Banana Split</a>,
+      <a href="https://stewit.github.io/banana_split/" target="_blank">Banana Split fork</a> 
+      is fork of <a href="https://bs.parity.io" target="_blank">Banana Split</a>,
       a self-contained HTML page, which makes your paper 
       backups more resilient and secure using 
       <a href="https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing" target="_blank">

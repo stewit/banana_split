@@ -1,5 +1,7 @@
 # Banana Split fork 🍌
 
+https://stewit.github.io/banana_split/
+
 **This is a fork of Banana split (https://bs.parity.io, https://github.com/paritytech/banana_split) adding some optional convenience overrides that may negatively impact security depending on your setup if activated. If you are unsure please always use the original project!!!**
 
 Compared to the original, this fork values guaranteed restorability by laymen / non-technical people higher than security.
@@ -28,7 +30,7 @@ That is to say:
 
 ## Usage
 ### How do you make a Banana Split?
-1. Save the Banana Split [HTML page](https://bs.parity.io/) and **open it in offline mode**.
+1. Save the Banana Split [HTML page](https://stewit.github.io/banana_split/) and **open it in offline mode**.
 2. Type your secret into Banana Split.
 Your secret will be encrypted with an auto-generated passphrase and split it into the number of QR codes you specify.
 3. Print out your QR codes.
@@ -38,7 +40,7 @@ Doing this by hand protects against an attacker intercepting things you’re sen
 ### How do you retrieve a Banana Split?
 Recovery can be done on any device with a webcam (or by entering the qr code json manually).
 
-1. Save the Banana Split [HTML page](https://bs.parity.io/) and **open it in offline mode**.
+1. Save the Banana Split [HTML page](https://stewit.github.io/banana_split/) and **open it in offline mode**.
 2. Using your webcam, scan in a majority of your QR code printouts (e.g., if you had 7 printouts, you’ll need 4). Or enter the qr code json manually for the majority of printouts.
 3. Enter your passphrase.
 4. Viola! Your secret is restored.
