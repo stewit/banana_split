@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="app" class="measure">
-      <ForkMe url="https://github.com/paritytech/banana_split" />
+      <ForkMe url="https://stewit.github.io/banana_split/" />
       <nav>
         <router-link id="logo" to="/">
           <span class="logo-text">
