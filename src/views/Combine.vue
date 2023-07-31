@@ -15,8 +15,9 @@
         <textarea
           id="shard_json_str"
           v-model="shard_json_str"          
-          placeholder="Enter shard json manually"
+          placeholder="Enter shard json manually. Use this only if QR code scanning does not work."
           style="margin-bottom:5px"
+          spellcheck="false"
         />
         <button id="add_shard" class="button-card" @click="addshardjson" style="margin-bottom:10px">
           Add shard json
@@ -37,6 +38,7 @@
         <p>
           <label>2. Secret</label>
           <textarea
+            spellcheck="false"
             v-if="recoveredSecret"
             id="recoveredSecret"
             v-model="recoveredSecret"

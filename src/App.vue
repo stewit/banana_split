@@ -5,7 +5,7 @@
       <nav>
         <router-link id="logo" to="/">
           <span class="logo-text">
-            Banana Split
+            Banana Split fork
           </span>
           <span class="logo-icon">
             🍌
@@ -18,10 +18,9 @@
       <SavePageInfo v-else-if="! (localFile || this.allow_non_local)" />
       <GoOfflineInfo v-else-if="isOnline && ! this.allow_online" />
 
-      <p style="margin-top:2em;">
-      
+      <div class="danger-zone" style="margin-top:2em;">
+
       <b>Security Overrides (DANGER ZONE! At your own risk...):</b>
-      </p>
 
       <div>
         <div style="display:inline-block;margin-right:3px">
@@ -40,7 +39,8 @@
           <label for="allow_non_local" style="display:inline">Do not enforce running from local file</label>
         </div>
       </div>
-      
+      </div>
+
       <div class="version-footer">
         {{ gitRevision }}
       </div>
@@ -311,6 +311,12 @@ button {
   font-size: 4rem;
   line-height: 0.8em;
   background: transparent;
+}
+
+.danger-zone {
+  border-radius: 10px;
+  border: 2px solid #CD232D;
+  padding: 20px; 
 }
 
 .version-footer {

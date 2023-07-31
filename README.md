@@ -1,4 +1,14 @@
-# Banana Split 🍌 &middot; ![Yarn tests](https://github.com/paritytech/banana_split/workflows/Yarn%20tests/badge.svg) [![Join the chat at https://gitter.im/paritytech/banana_split](https://badges.gitter.im/paritytech/banana_split.svg)](https://gitter.im/paritytech/banana_split?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Banana Split fork 🍌
+
+**This is a fork of Banana split (https://bs.parity.io, https://github.com/paritytech/banana_split) adding some optional convenience overrides that may negatively impact security depending on your setup if activated. If you are unsure please always use the original project!!!**
+
+Compared to the original, this fork values guaranteed restorability by laymen / non-technical people higher than security.
+* Allows to deactivate the browser offline mode enforcement. Use from browsers that hide or even do not have offline mode, e.g. on mobile devices.
+* Allows to deactivate local file enforcement. Local file detection may not work on some setups.
+* Additionally prints the qr code json on each shard sheet and allows to manually enter this json during restore instead of scanning the qr code. Use this if scanning qr codes does not work in your restoration setup.
+
+
+# Banana Split
 
 Banana Split makes your paper backups more resilient and secure using [Shamir’s secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing).
 
@@ -26,10 +36,10 @@ Your secret will be encrypted with an auto-generated passphrase and split it int
 Doing this by hand protects against an attacker intercepting things you’re sending to the printer.
 
 ### How do you retrieve a Banana Split?
-Recovery can be done on any device with a webcam.
+Recovery can be done on any device with a webcam (or by entering the qr code json manually).
 
 1. Save the Banana Split [HTML page](https://bs.parity.io/) and **open it in offline mode**.
-2. Using your webcam, scan in a majority of your QR code printouts (e.g., if you had 7 printouts, you’ll need 4).
+2. Using your webcam, scan in a majority of your QR code printouts (e.g., if you had 7 printouts, you’ll need 4). Or enter the qr code json manually for the majority of printouts.
 3. Enter your passphrase.
 4. Viola! Your secret is restored.
 
@@ -37,7 +47,7 @@ Recovery can be done on any device with a webcam.
 ###  Work local and offline
 
 Banana Split is a self-contained HTML page.
-To ensure your precious data is never sent outside, it only works when opened from your local hard drive while your browser is in Offline mode.
+To ensure your precious data is never sent outside, it only works when opened from your local hard drive while your browser is in Offline mode. (Note: This can be overriden in this fork)
 
 ### Without the passphrase, you won’t be able to retrieve your secret
 

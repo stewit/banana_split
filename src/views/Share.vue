@@ -75,11 +75,13 @@
         <div>
         Write it by hand on each printed sheet!
         </div>
-        <div style="display:inline-block;margin-right:3px;margin-top:8px">
+        <div id="print_password_selection" class="danger-zone" style="margin-top:8px">
+        <div style="display:inline-block;margin-right:3px">
           <input type="checkbox" id="printPassword" v-model="printPassword" name="print password" style="display:inline"/>
         </div>
         <div style="display:inline-block">
           <label for="printPassword" style="display:inline">Print Password onto sheets (DANGER ZONE! At your own risk...)</label>
+        </div>
         </div>
       </div>
       </div>

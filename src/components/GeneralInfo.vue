@@ -2,7 +2,8 @@
   <div class="general-info">
     <h2>What is this?</h2>
     <p>
-      Banana Split is a self-contained HTML page, which makes your paper 
+      Banana Split fork is fork of <a href="https://bs.parity.io" target="_blank">Banana Split</a>,
+      a self-contained HTML page, which makes your paper 
       backups more resilient and secure using 
       <a href="https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing" target="_blank">
         Shamir's secret sharing scheme</a>.
@@ -21,15 +22,17 @@
       Banana Split tries to protect your secret from the attack vectors like 
       "attacker is able to intercept everything you're sending to your printer", 
       and that's why you'll have to write down the passphrase on your printouts 
-      by hand.
+      by hand (can be overriden in this fork).
     </p>
     <p>
       Of course you should seal your printouts in non-transparent envelopes and distribute among different locations as soon as you're done writing your seed phrase — Banana Split is only more secure than a single paper with your secret as long as the secrets can't be lost/stolen altogether.
     </p>
     <p>
-      All operations must be performed in Offline mode. Recovery can be done 
+      All operations must be performed in Offline mode (can be overriden in this fork).
+      Recovery can be done 
       on any device with a webcam — just show your QR codes to the webcam 
-      and follow the notifications on screen in the process. 
+      and follow the notifications on screen in the process. This fork additionally prints
+      the qr code json on the sheets and allows to enter them manually.
     </p>
     <h2>How to use it?</h2>
     <ol>
