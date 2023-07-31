@@ -19,7 +19,7 @@
           style="margin-bottom:5px"
           spellcheck="false"
         />
-        <button id="add_shard" class="button-card" @click="addshardjson" style="margin-bottom:10px">
+        <button id="add_shard" class="button-card" style="margin-bottom:10px" @click="addshardjson">
           Add shard json
         </button>        
       </div>
@@ -38,10 +38,10 @@
         <p>
           <label>2. Secret</label>
           <textarea
-            spellcheck="false"
             v-if="recoveredSecret"
             id="recoveredSecret"
             v-model="recoveredSecret"
+            spellcheck="false"
             readonly
           />
           <textarea v-else readonly disabled />

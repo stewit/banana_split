@@ -10,8 +10,10 @@
       somewhere, with a help of your browser spellchecker, webpage translation
       extension and such.
     </p>
-    <p>In Firefox, please go to Menu→File→Work Offline. 
-    You may need to press the Alt key for the menu to show.</p>
+    <p>
+      In Firefox, please go to Menu→File→Work Offline. 
+      You may need to press the Alt key for the menu to show.
+    </p>
     <p>
       In Chrome, you'll have to open DevTools (Ctrl+Shift+I), then in the
       Network tab there check the "Offline" checkbox. (DON'T CLOSE DEVELOPER

@@ -10,12 +10,12 @@
     <qriously class="qr-code print-only" :value="shard" :size="600" />
     <qriously class="screen-only card-qr" :value="shard" :size="200" />
 
-    <div>
+    <div class="print-only">
       QR content json for alternative manual input:
     </div>
 
-    <div class="print-only" id="" style="word-wrap:break-word;text-align:left;width:80vw;font-size:1vw;">
-      {{shardJsonStr}}
+    <div id="" class="print-only" style="word-wrap:break-word;text-align:left;width:80vw;font-size:1vw;">
+      {{ shardJsonStr }}
     </div>
 
     <div class="print-only">
@@ -23,10 +23,10 @@
         <div class="recovery-title">
           Recovery&nbsp;passphrase&nbsp;is:&nbsp;
         </div>
-        <div class="print-only" v-if="printPassword" style="text-transform:none">
-          {{recoveryPassphrase}}
+        <div v-if="printPassword" class="print-only" style="text-transform:none">
+          {{ recoveryPassphrase }}
         </div>
-        <div class="recovery-blank" v-if="!printPassword" />
+        <div v-if="!printPassword" class="recovery-blank" />
       </div>
       <p class="version">
         Please go to <a href="https://bs.parity.io">bs.parity.io</a> to download

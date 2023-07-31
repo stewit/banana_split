@@ -15,30 +15,29 @@
       </nav>
 
       <router-view v-if="secure" />
-      <SavePageInfo v-else-if="! (localFile || this.allow_non_local)" />
-      <GoOfflineInfo v-else-if="isOnline && ! this.allow_online" />
+      <SavePageInfo v-else-if="! (localFile || allow_non_local)" />
+      <GoOfflineInfo v-else-if="isOnline && ! allow_online" />
 
       <div class="danger-zone" style="margin-top:2em;">
+        <b>Security Overrides (DANGER ZONE! At your own risk...):</b>
 
-      <b>Security Overrides (DANGER ZONE! At your own risk...):</b>
+        <div>
+          <div style="display:inline-block;margin-right:3px">
+            <input id="allow_online" v-model="allow_online" type="checkbox" style="vertical-align:middle" />
+          </div>
+          <div style="display:inline-block">
+            <label for="allow_online" style="word-wrap:break-word">Do not enforce browser offline mode</label> 
+          </div>
+        </div>
 
-      <div>
-        <div style="display:inline-block;margin-right:3px">
-          <input type="checkbox" id="allow_online" v-model="allow_online" style="vertical-align:middle" />
+        <div>
+          <div style="display:inline-block;margin-right:3px">
+            <input id="allow_non_local" v-model="allow_non_local" type="checkbox" name="allow running from non-local file" style="display:inline" />
+          </div>
+          <div style="display:inline-block">
+            <label for="allow_non_local" style="display:inline">Do not enforce running from local file</label>
+          </div>
         </div>
-        <div style="display:inline-block">
-          <label for="allow_online" style="word-wrap:break-word">Do not enforce browser offline mode</label> 
-        </div>
-      </div>
-
-      <div>
-        <div style="display:inline-block;margin-right:3px">
-          <input type="checkbox" id="allow_non_local" v-model="allow_non_local" name="allow running from non-local file" style="display:inline"/>
-        </div>
-        <div style="display:inline-block">
-          <label for="allow_non_local" style="display:inline">Do not enforce running from local file</label>
-        </div>
-      </div>
       </div>
 
       <div class="version-footer">

@@ -82,7 +82,7 @@ yarn run test:unit
 
 #### Run end-to-end UI tests
 ```
-yarn run test:e2e
+NODE_OPTIONS=--openssl-legacy-provider yarn run test:e2e
 ```
 
 #### Lints and fixes files
