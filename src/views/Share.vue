@@ -31,7 +31,16 @@
       <p>
         <label>3. Shards</label>
         <br />
-        Will require any {{ requiredShards }} shards out of
+        Will require any
+        <input
+          id="requiredShards"
+          v-model.number="requiredShards"
+          :disabled="encryptionMode"
+          type="number"
+          min="2"
+          max="255"
+        />
+        shards out of
         <input
           id="totalShards"
           v-model.number="totalShards"
@@ -114,6 +123,7 @@ import Vue from "vue";
 type ShareData = {
   title: string;
   secret: string;
+  requiredShards: number;
   totalShards: number;
   recoveryPassphrase: string;
   encryptionMode: boolean;
@@ -127,18 +137,28 @@ export default Vue.extend({
     return {
       title: "",
       secret: "",
-      totalShards: 3, // TODO: 5
+      requiredShards: 3,
+      totalShards: 5,
       recoveryPassphrase: "",
       encryptionMode: false,
       printPassword: false
     };
   },
+  watch: {
+    requiredShards(newValue) {
+      if (newValue >= this.totalShards) {
+        this.totalShards = newValue + 1;
+      }
+    },
+    totalShards(newValue) {
+      if (newValue <= this.requiredShards) {
+        this.requiredShards = newValue - 1;
+      }
+    }
+  },
   computed: {
     secretTooLong(): boolean {
       return this.secret.length > 1024;
-    },
-    requiredShards(): number {
-      return Math.floor(this.totalShards / 2) + 1;
     },
     shouldPrintPassword(): boolean {
       return true;

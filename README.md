@@ -8,13 +8,14 @@ Compared to the original, this fork values guaranteed restorability by laymen / 
 * Allows to deactivate the browser offline mode enforcement. Use from browsers that hide or even do not have offline mode, e.g. on mobile devices.
 * Allows to deactivate local file enforcement. Local file detection may not work on some setups.
 * Additionally prints the qr code json on each shard sheet and allows to manually enter this json during restore instead of scanning the qr code. Use this if scanning qr codes does not work in your restoration setup.
+* Makes the number of required pieces user configurable.
 
 
 # Banana Split
 
 Banana Split makes your paper backups more resilient and secure using [Shamir’s secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing).
 
-It splits your secret (e.g., paper backup) into `N` pieces, but only requires a majority of those pieces (`N/2+1`) to recover your secret.
+It splits your secret (e.g., paper backup) into `N` pieces, but only requires some of those pieces (`<N`) to recover your secret.
 
 ## Why Banana Split?
 There’s a few problems with normal paper backups:
